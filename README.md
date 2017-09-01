@@ -1,10 +1,10 @@
 # resource-management-in-rust
 Documentation about resource management in the Rust programming language
 
-State of this document
-======================
+Meta
+====
 
-This is a work in progress.
+This is a work in progress. It is not part of the official Rust documentation.
 
 Target audiance
 ===============
