@@ -1,7 +1,9 @@
 Resource management in Rust
 ===========================
 
-Documentation about resource management in the Rust programming language
+Documentation about resource management in the Rust programming language.
+
+[Read online.](https://pieterpenninckx.github.io/resource-management-in-rust/)
 
 Meta
 ----
@@ -25,6 +27,6 @@ This document is for you if you
 License
 -------
 
-"Resource management in rust" is licenced under the Apache License, Version 2.0
+"Resource management in Rust" is licenced under the Apache License, Version 2.0
 (see [LICENSE-APACHE](LICENSE-APACHE)), 
 or the MIT license (see [LICENSE-APACHE](LICENSE-APACHE)), at your opinion.
