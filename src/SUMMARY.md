@@ -1,5 +1,18 @@
 # Summary
 
 - [Resources in general](./resources-in-general.md)
+	- [Example](./resources-in-general-example.md)
+	- [What is a resource](./what-is-a-resource.md)
+- [Memory as a resource](./memory-as-a-resource.md)
+	- [Example](./memory-as-a-resource-example.md)
+	- [Garbage collectors](./garbage-collectors.md)
+	- [Not all memory needs to be acquired](./not-all-memory-needs-to-be-acquired.md)
+- [An example of using a resource in Rust](./an-example-of-using-a-resource-in-rust.md)
+	- [Resources used in the example](./resources-used-in-the-example.md)
+	- [Stepping through the example](./stepping-trough-the-example.md)
+	- [Some core concepts illustrated](./core-concepts-illustrated.md)
+	- [Ownership is the responsibility to clean up](./ownership-in-short.md)
+	- [Borrowing is having access](./borrowing-in-short.md)
+	- [Moving is transfer of ownership](./moving-in-short.md)
 - [Resources in Rust](./resources-in-rust.md)
 
