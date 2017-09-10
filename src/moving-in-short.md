@@ -17,3 +17,17 @@ when the old variable goes out of scope.
 The new variable is the owner and is responsible for releasing the resource.
 Either it transfers the ownership to yet another new owner, or it releases the
 resource when it goes out of scope.
+
+### Not all memory owns a resource
+
+Not every value really corresponds to a resource that is manager by a resource
+manager.
+For instance, a value may hold a number that has been entered by the user, 
+or a number that is a result of a calculation.
+This does not need to be required or released, so it is no problem at all if
+this value gets copied many times and each copy is used (e.g. in a calculation).
+So not all values have move semantics: you can opt-out for it and choose for
+copy semantics.
+Data types can opt out of move semantics when they do not contain any handle
+that corresponds to a resource.
+We then say that the data type has _copy semantics_.

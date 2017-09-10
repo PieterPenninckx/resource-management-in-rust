@@ -16,7 +16,7 @@ WRITE_TO_FILE()
 
 In the pseudocode example we ignored the error handling.
 In real Rust code, we cannot ignore errors that occur.
-This makes the code longer.
+For this reason, the equivalent in Rust is a bit longer.
 
 ```rust
 use std::fs::File;

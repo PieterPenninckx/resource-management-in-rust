@@ -11,8 +11,10 @@
 	- [Resources used in the example](./resources-used-in-the-example.md)
 	- [Stepping through the example](./stepping-trough-the-example.md)
 	- [Some core concepts illustrated](./core-concepts-illustrated.md)
-	- [Ownership is the responsibility to clean up](./ownership-in-short.md)
+- [Core concepts](./core-concepts-overview.md)
+	- [Ownership is the responsibility to release the resource](./ownership-in-short.md)
 	- [Borrowing is having access](./borrowing-in-short.md)
 	- [Moving is transfer of ownership](./moving-in-short.md)
-- [Resources in Rust](./resources-in-rust.md)
+- [An example of providing a resource in Rust](./an-example-of-providing-a-resource-in-rust.md)
+- [Recap](./intro-recap.md)
 

@@ -1,5 +1,5 @@
-Ownership is the responsibility to clean up
--------------------------------------------
+Ownership is the responsibility to release the resource
+-------------------------------------------------------
 
 Ownership means having a handle that gives access to a resource.
 This can be any type of resource: a piece of memory, a file, or anything that

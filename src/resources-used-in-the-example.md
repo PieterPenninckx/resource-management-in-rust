@@ -1,6 +1,8 @@
 Resources used in the example
 -----------------------------
 
+TODO: I think it is clearer if we step trough the example instead.
+
 Apart from the memory that the application needs to store its CPU-instructions,
 it also needs the following resources when executing the function 
 `write_to_file` described above:
