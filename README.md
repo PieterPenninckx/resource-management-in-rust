@@ -2,6 +2,11 @@ Resource management in Rust
 ===========================
 
 Documentation about resource management in the Rust programming language.
+We zoom in on some concepts that are specific to Rust:
+
+* ownership
+* borrowing
+* lifetimes
 
 [Read online.](https://pieterpenninckx.github.io/resource-management-in-rust/)
 
@@ -10,10 +15,10 @@ Meta
 
 This is a work in progress. It is not part of the official Rust documentation.
 
-Target audiance
+Target audience
 ---------------
 
-This document is for you if you
+This documentation is for you if you
 
 * are learning the Rust programming language and you want to understand 
   lifetimes, ownership, borrowing etc. better,
@@ -24,9 +29,34 @@ This document is for you if you
 * have no problem with the fact that this documentation 
   is probably a work in progress for ever.
 
+Building
+--------
+
+We use [mdBook](https://github.com/azerupi/mdBook) to build the HTML version
+of the documentation. You can install mdBook with the following command:
+
+```
+cargo install mdbook
+```
+
+To build, go to the folder containing the `src` folder and run the following
+command:
+
+```
+mdbook build
+```
+
+The result is in the `book` directory.
+
+Contributing
+------------
+
+We welcome contributions, big and small. See [CONTRIBUTING](CONTRIBUTING) for
+details.
+
 License
 -------
 
-"Resource management in Rust" is licenced under the Apache License, Version 2.0
+"Resource management in Rust" is licensed under the Apache License, Version 2.0
 (see [LICENSE-APACHE](LICENSE-APACHE)), 
 or the MIT license (see [LICENSE-APACHE](LICENSE-APACHE)), at your opinion.
