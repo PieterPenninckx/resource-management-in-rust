@@ -51,7 +51,7 @@ The result is in the `book` directory.
 Contributing
 ------------
 
-We welcome contributions, big and small. See [CONTRIBUTING](CONTRIBUTING) for
+We welcome contributions, big and small. See [CONTRIBUTING](CONTRIBUTING.md) for
 details.
 
 License
