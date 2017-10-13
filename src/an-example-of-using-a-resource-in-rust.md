@@ -4,7 +4,7 @@ An example of using a resource in Rust
 Let us give an example illustrating how you can write to a file in Rust,
 similar to the example in pseudo-code we gave at the very beginning.
 
-For ease of reference, we copy the example in pseudo-code here.
+For ease of reference, we repeat the introduction example here:
 
 ```
 WRITE_TO_FILE()
@@ -14,8 +14,8 @@ WRITE_TO_FILE()
 4   CLOSE_FILE(file_descriptor)
 ```
 
-In the pseudocode example we ignored the error handling.
-In real Rust code, we cannot ignore errors that occur.
+In the pseudo-code example we ignored the error handling.
+In real Rust code, we cannot ignore errors.
 For this reason, the equivalent in Rust is a bit longer.
 
 ```rust
@@ -36,7 +36,7 @@ fn write_to_file() -> Result<(), Error>{
 The first three lines are just there so that the
 compiler needs what is meant by `File`, `Error` etc.
 
-In the first line in the function body, the program asks the operating system
+In the first line of the function body, the program asks the operating system
 to create a file named "MyDocument.txt". The resulting file descriptor is wrapped
 in a value of type `File` and stored in the variable named `file`. The question
 mark at the end of the line is for error handling and indicates that the

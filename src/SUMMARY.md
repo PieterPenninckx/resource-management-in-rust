@@ -16,5 +16,5 @@
 	- [Borrowing is having access](./borrowing-in-short.md)
 	- [Moving is transfer of ownership](./moving-in-short.md)
 - [An example of providing a resource in Rust](./an-example-of-providing-a-resource-in-rust.md)
-- [Recap](./intro-recap.md)
+- [Summary](./intro-summary.md)
 

@@ -1,9 +1,8 @@
-Recap
-=====
+Summary
+=======
 
 
-Resources correspond to a capability of the hardware.
-(TODO: The previous sentence is not correct.)
+Resources are things like files, memory, etc. 
 They are managed by a resource manager that gives you the possibility to acquire
 a resource and when you don't need to use the resource anymore, then you can
 give it back.

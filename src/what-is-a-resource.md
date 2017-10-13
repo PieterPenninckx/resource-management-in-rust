@@ -1,16 +1,16 @@
 What is a resource
 ------------------
 
-In the introduction example, we have seen a simple program that communicates
-to the operating system to write some text to a file.
+In the introduction example, we have seen a simple program that
+writes some text to a file.
 
 The file is a specific example of the more broad concept of a _resource_.
 Other examples of resources include 
 
-* a network socket
-* a connection to a server
-* a block of memory
-* access to the screen, soundcard, printer or any other device
+* a network socket,
+* a connection to a server,
+* a block of memory,
+* access to the screen, soundcard, printer or any other device,
 * a mutual exclusive lock.
 
 Some resources correspond to physical devices, other correspond to virtual

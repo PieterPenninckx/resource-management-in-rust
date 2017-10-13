@@ -1,11 +1,11 @@
 Introduction example
 --------------------
 
-Let us give one example in different programming languages: creating an
+Let us give an example in different programming languages: creating an
 array or a vector or something similar of numbers, and storing the sum of
 the numbers in the first element of the vector.
 
-This is how this looks like in Python:
+This is how it looks like in Python
 
 ```python
 def compute_sum():
@@ -13,7 +13,7 @@ def compute_sum():
 	numbers[0] = numbers[0] + numbers[1] + numbers[2]
 ```
 
-In Java or C#:
+in Java or C#
 
 ```java
 void ComputeSum() {
@@ -22,7 +22,7 @@ void ComputeSum() {
 }
 ```
 
-In Javascript:
+and in Javascript
 
 ```javascript
 function ComputeSum() {
@@ -36,12 +36,13 @@ given, you can probably write down this simple function yourself.
 
 On the first line in the function body, an array is created, containing the 
 numbers one, two and three. 
-When any of the examples above is is executed, under the hood, a part
+When any of the examples above is executed, under the hood, a part
 of memory is reserved to store the numbers. The variable `numbers` contains
-somehow a handle for the piece of memory that was reserved.
+somehow a handle to the piece of memory that was reserved.
 
 On the second line, the handle stored in `numbers` is used multiple times to
-compute a simple sum and store it in the first element of the array.
+get different elements of the array. 
+The sum is computed and stored it in the first element of the array.
 
 If the general approach to using a resource was used, then there would be a
 third line on which the resource manager was informed that we don't need the

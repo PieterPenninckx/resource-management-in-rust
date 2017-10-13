@@ -7,10 +7,9 @@ So if you want to use memory, then you need to get a handle that gives access to
 You then need to store this handle in memory, and for this, you have to acquire memory.
 Eum... this is a "the chicken or the egg" dilemma!
 
-This dilemma is solved by giving the application a dedicated piece of
-memory that can be used without needing to acquire or release it.
-In fact, each application gets at least two dedicated pieces of memory without
-needing to acquire or release it.
+This dilemma is solved by giving each application a dedicated piece of
+memory that can be used without acquiring or releasing it.
+In fact, each application gets at least two dedicated pieces of memory.
 
 First there is a piece of memory that can be used by the application for data
 that has a fixed size and lives essentially as long as the application runs.
@@ -24,11 +23,11 @@ of the functions and the parameters that are passed to the functions
 (and some other stuff as well). 
 This is called the _stack_.
 There is one stack per thread.
-If you don't know what a thread is, don't worry for now about that, just 
+If you don't know what a thread is, don't worry about that for now, just 
 know that each application uses at least one thread when it runs.
 When a function call is made, a piece of the stack is used to store the local
 variables of the function and the parameters to that function and when the function
-is finished, the memory is released.
+is finished, this piece of memory is released.
 
 This means that after a function call is finished, the memory that was used to
 store the local variables of the function or the parameters that ware passed to
@@ -41,7 +40,7 @@ These two pieces of memory -- static memory and the stack -- solve the
 chicken-and-egg dilemma we mentioned earlier.
 In some situations however, this is not enough. 
 When you don't know how much memory you will need at compile time, you can't use
-static memory. 
+static memory (in general). 
 And when you need to store memory for a longer time, you can't store it on
 the stack.
 If you want to use some memory for a longer time and you can only know at run
@@ -50,6 +49,9 @@ not in static memory and not on the stack.
 We say that this is "on the heap".
 
 This is just the same as with any other kind of resource we discussed before!
+Memory on the heap has to be acquired explicitely and must be resude after use,
+either as a consequence of an explicit instruction in the program, or because
+the garbage collector takes care of that.
 Also for memory, the operating system has the role of resource manager, and it
 distributes handles (memory adresses) that can be used by the processes.
 But this is very low level stuff and it also has a large overhead because 
@@ -65,13 +67,11 @@ This memory management library plays the role of a resource manager.
 You can ask it to give an amount of memory and it negociates with the operating
 system for you.
 From the point of view of the application, it's still a resource manager where
-you have to acquire a piece of memory, or release a piece of memory.
-
-Memory that is obtained in this way is memory _on the heap_.
-Acquiring memory access is called _memory allocation_ and releasing memory is called _freeing_.
+you have to acquire a piece of memory and release it after use.
 
 Note that a garbage collector is not the same as a dynamic memory management 
 library.
 A dynamic memory management library requires you to tell explicitly
 when you don't need a specific part of memory anymore.
 
+Acquiring memory access is called _memory allocation_ and releasing memory is called _freeing_.
