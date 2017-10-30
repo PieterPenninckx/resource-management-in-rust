@@ -54,6 +54,7 @@ Line three of the function body can be written more shortly as follows:
 
 Again, the question mark is for error handling.
 You can ignore the `&mut` for now, you will encounter it many times later on.
+
 In essence, it is just as in the pseudo-code example: we pass the handle
 (the variable `file`) and the text we want to write to the a function that
 asks the operating system to do the real work.

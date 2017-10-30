@@ -91,7 +91,7 @@ within the `FileSystem` module.
 			unsafe {
 				// the internals of a type that communicates with a resource
 				// manager are typically unsafe.
-				// We ommit it here.
+				// We omit it here.
 			}
 		}
 		// Incomplete code, to be continued.
@@ -105,7 +105,7 @@ not the focus of this document.
 Note that the function `ask_operating_system_for_file_descriptor` is not marked
 `pub`, so it can only be called from within the module. 
 In the function `open`, we already saw how it can be called.
-Note the syntaxis `File::ask_operating_system_for_file_descriptor`. 
+Note the syntax `File::ask_operating_system_for_file_descriptor`. 
 Because the function `ask_operating_system_for_file_descriptor` is defined in
 the `impl` block of the type `File`, you have to specify the type, even when the function
 does not have a parameter of type `File` or return a value of type `File`.
@@ -127,7 +127,7 @@ we are in the `impl File` block).
 Type `&File` means an immutable reference to a value of type `File`.
 This implies that any borrower that borrows a value of type `File` as immutable
 has access to read bytes from the file.
-It also allows a special syntaxis: if `file` is a variable of type `File` or of type
+It also allows a special syntax: if `file` is a variable of type `File` or of type
 `&File` or of type `&mut File`, then you can write `file.read_byte(3)` to
 read the third byte from the file.
 
@@ -144,7 +144,7 @@ from the file.
 		// Still in the `impl` block.
 		pub fn file_size_in_bytes(&self) -> usize {
 			unsafe {
-				// Also ommitted.
+				// Also omitted.
 			}
 		}
 		// Incomplete code, to be continued.
@@ -158,7 +158,7 @@ that borrows the value of type `File` as immutable.
 		// Still in the `impl block.
 		pub fn write_byte(&mut self, index: usize, byte_to_write: u8) {
 			unsafe {
-				// Ommitted.
+				// Omitted.
 			}
 		}
 	} // Close the impl block. Incomplete code, to be continued.
@@ -166,7 +166,7 @@ that borrows the value of type `File` as immutable.
 
 This function takes an `&mut self` parameter. 
 It indicates that this function is restricted to references as mutable only.
-Refferences as immutable cannot be passed to this function (because they have
+References as immutable cannot be passed to this function (because they have
 a different data type).
 In this way, access to write a byte to a file is restricted to references as mutable.
 So you can only write to a file if you borrow it as mutable, not as immutable.
@@ -188,7 +188,7 @@ Let's see how the file `File` ensures that the file is closed properly.
 } // End of the `FileSystem` module.
 ```
 
-Here we see the syntaxis `impl Drop for File` is used to indicate that the
+Here we see the syntax `impl Drop for File` is used to indicate that the
 `File` struct implements the `Drop` trait.
 The implementation can be found in the block immediately below.
 The `Drop` trait defines only one function, called `drop` that takes one
@@ -196,7 +196,7 @@ The `Drop` trait defines only one function, called `drop` that takes one
 The implementation is again typically unsafe code that does communication
 with an external API offered by the operating system.
 What happens here is that the operating system is instructed to close the
-file with the `file_descriptor` that was required during the initialisation.
+file with the `file_descriptor` that was required during the initialization.
 
 Let us now see how the `File` struct can be used in practice.
 We assume that the file struct is used outside of the `FileSystem` module.
@@ -219,7 +219,7 @@ fn copy_file(source_filepath: &FilePath, destination_filepath: &FilePath) {
 
 On the first line of the function, we open the source file.
 The value is immutable by default.
-Note the `File::open(...)` syntaxis for calling a method associated to a type.
+Note the `File::open(...)` syntax for calling a method associated to a type.
 On the second line, we open the destination file.
 This value is defined as mutable.
 The third line is very interesting.
@@ -232,7 +232,7 @@ call for us.
 Maybe it's time to let this sink a little, because this illustrates the foundation of
 Rusts resource management.
 
-Ok, on to the function that copies data.
+OK, on to the function that copies data.
 As we already noted, this function borrows `source_file` as immutable and
 `destination_file` as mutable.
 
@@ -250,22 +250,22 @@ fn copy_data(source: &File, destination: &mut File) {
 
 The signature clarifies that `source` is borrowed as immutable from somewhere
 and `destination` is borrowed as mutable.
-When calling the `file_size_in_bytes` function, we use a syntaxis we didn't use
+When calling the `file_size_in_bytes` function, we use a syntax we didn't use
 before.
-An equivalent, but not as beautifull syntaxis would be
+An equivalent, but not as beautiful syntax would be
 `let length = File::file_size_in_bytes(source);`.
-Instead of passing the `&self` parameter explicitely, 
+Instead of passing the `&self` parameter explicitly, 
 we use the dot-operator to call the function as is common in object-oriented languages.
 
 Next comes a for-loop, where we loop over the indexes of all bytes in the source
 file.
 
 In the for-loop, we first read a byte from the `source`.
-Again, note the syntaxis for this.
+Again, note the syntax for this.
 Then we write it to the destination.
 
 Then we write the byte we have just read to the `destination` file.
 Remember that the `File::write_byte` expects an `&mut self` parameter.
-Here, `destination` is passed implicitely as the `&mut self` parameter, so it
+Here, `destination` is passed implicitly as the `&mut self` parameter, so it
 must have type `&mut File`. This is why the function `copy_data` expects the
 parameter `destination` to be of type `&mut File`.

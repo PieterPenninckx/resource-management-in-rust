@@ -14,7 +14,7 @@ WRITE_TO_FILE()
 
 On line 1, we call the function `OPEN_FILE` and we pass as parameter the
 name of the file we want to open.
-This function `OPEN_FILE`, wich we do not give pseudo-code for, 
+This function `OPEN_FILE`, which we do not give pseudo-code for, 
 communicates with the operating system and asks to open the file with the given
 file name.
 
@@ -41,6 +41,6 @@ On line 4, we call the function `CLOSE_FILE` to close the file.
 Again, we pass the variable `file_descriptor` to specify which file must be
 closed.
 
-Excercise. In the previous example, the programmer can make a bug for instance
+Exercise. In the previous example, the programmer can make a bug for instance
 by forgetting to close the file. There are many mistakes like that.
 Write down a number of them. We will come back to this later on.

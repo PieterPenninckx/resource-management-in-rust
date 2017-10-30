@@ -9,7 +9,7 @@ somewhere else.
 Hence it's also not called "copying", it is called _moving_ instead.
 We say that the value that holds the handle has _move semantics_.
 This move can be done by a simple variable assignment.
-When you assing a variable to a new variable, the new variable is the owner
+When you assign a variable to a new variable, the new variable is the owner
 of the resource.
 The old variable still holds the handle, but it cannot be used anymore: the
 compiler disallows this and the `drop()` function will not be called anymore

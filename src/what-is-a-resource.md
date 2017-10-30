@@ -10,7 +10,7 @@ Other examples of resources include
 * a network socket,
 * a connection to a server,
 * a block of memory,
-* access to the screen, soundcard, printer or any other device,
+* access to the screen, sound card, printer or any other device,
 * a mutual exclusive lock.
 
 Some resources correspond to physical devices, other correspond to virtual
@@ -23,7 +23,7 @@ In the introduction example for instance, the handle was a file descriptor.
 When a process wants to access a resource, it asks the resource manager for a
 handle that gives access to the resource.
 In the introduction example, the function `OPEN_FILE` asked the operating system
-(the resource manager) for a file descriptor (the handle) that gives acces to
+(the resource manager) for a file descriptor (the handle) that gives access to
 the file (the resource).
 The resource manager may refuse access, or open the resource on behalf
 of the process and hand over the handle to the process.
@@ -41,7 +41,7 @@ the resource can be re-used by another process that wants to use the resource ag
 In general, using a resource looks as follows:
 
 ```
-USE_RESOURCE()
+GENERAL_FLOW_OF_USING_A_RESOURCE()
 1   handle ← OPEN_RESOURCE(parameters)
 2   USE_RESOURCE(handle)
 3   RELEASE_RESOURCE(handle)

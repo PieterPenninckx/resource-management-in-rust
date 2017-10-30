@@ -22,7 +22,7 @@ void ComputeSum() {
 }
 ```
 
-and in Javascript
+and in JavaScript
 
 ```javascript
 function ComputeSum() {
@@ -31,8 +31,8 @@ function ComputeSum() {
 }
 ```
 
-If you more familiar with a programming language for which no example was
-given, you can probably write down this simple function yourself.
+If you are more familiar with a programming language for which no example was
+given, you can write down this function in that language as an exercise.
 
 On the first line in the function body, an array is created, containing the 
 numbers one, two and three. 

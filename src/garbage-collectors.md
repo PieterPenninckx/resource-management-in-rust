@@ -2,7 +2,7 @@ Garbage collectors
 ------------------
 
 In the previous section, we illustrated that in many programming
-languages, the programmer does not have to explicitely write instructions to
+languages, the programmer does not have to explicitly write instructions to
 release memory is no longer needed. 
 But if the application were to only reserve more
 and more memory, it would soon run out of memory. So ultimately, somehow the
@@ -21,7 +21,7 @@ One technique, called 'reference counting', can be implemented relatively easily
 and requires only a little help from the programming language.
 Other techniques require extensive support from the programming language.
 
-Most recent programming languages, including Python, Javascript, Java, C# and 
+Most recent programming languages, including Python, JavaScript, Java, C# and 
 Go, offer extensive support for garbage collecting. In these languages, you 
 typically rely on the garbage collector for nearly everything you do, as is
 illustrated in the previous section.
