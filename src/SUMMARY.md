@@ -7,6 +7,7 @@
 	- [Example](./memory-as-a-resource-example.md)
 	- [Garbage collectors](./garbage-collectors.md)
 	- [Not all memory needs to be acquired](./not-all-memory-needs-to-be-acquired.md)
+- [Memory and data structures](./memory-and-data-structures.md)
 - [An example of using a resource in Rust](./an-example-of-using-a-resource-in-rust.md)
 	- [Resources used in the example](./resources-used-in-the-example.md)
 	- [Stepping through the example](./stepping-trough-the-example.md)

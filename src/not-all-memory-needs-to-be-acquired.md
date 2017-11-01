@@ -67,9 +67,10 @@ between the application and the operating system. In this way, it avoids
 having to do a system call -- which is rather 'expensive' -- for each and
 every small piece of memory that the application needs.
 
-Note that a garbage collector is not the same as a dynamic memory management 
-library.
-A dynamic memory management library requires you to tell explicitly
-when you don't need a specific part of memory anymore.
+The garbage collector works on top of the dynamic memory management library.
+The garbage collector analyses both the stack and the heap to determine which
+memory on the heap is not needed anymore. 
+When it finds unneeded memory on the heap, it asks the dynamic memory management
+library to release the unneeded memory.
 
 Acquiring memory access is called _memory allocation_ and releasing memory is called _freeing_.
