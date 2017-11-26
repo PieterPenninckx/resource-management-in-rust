@@ -1,15 +1,9 @@
 Not all memory needs to be acquired
 -----------------------------------
 
-Memory as a resource is a special case, because the handle that gives access
-to the resource is stored in memory as well.
-So if you want to use memory, then you need to get a handle that gives access to the memory.
-You then need to store this handle in memory, and for this, you have to acquire memory.
-Err... this is a "the chicken or the egg" dilemma!
-
-This dilemma is solved by giving each application a dedicated piece of
-memory that can be used without acquiring or releasing it.
-In fact, each application gets at least two dedicated pieces of memory.
+Each application gets at least two dedicated pieces of memory
+that can be used without acquiring or releasing it (apart from the CPU
+registers which you typically only encounter when you program in assembly).
 
 First there is a piece of memory that can be used by the application for data
 that has a fixed size and lives essentially as long as the application runs.
@@ -36,9 +30,7 @@ So you cannot expect the values that were stored in that piece of memory are
 still intact. This implies that you cannot use the stack to store data that you
 need for a longer time, longer than the duration of the function call. 
 
-These two pieces of memory -- static memory and the stack -- solve the
-chicken-and-egg dilemma we mentioned earlier.
-In some situations however, this is not enough. 
+In some situations however, static memory and the stack are not enough. 
 When you don't know how much memory you will need at compile time, you can't use
 static memory (in general). 
 And when you need to store memory longer than the duration of the function call
@@ -74,3 +66,23 @@ When it finds unneeded memory on the heap, it asks the dynamic memory management
 library to release the unneeded memory.
 
 Acquiring memory access is called _memory allocation_ and releasing memory is called _freeing_.
+
+If you haven't heard about the distinction between the stack and the heap yet,
+that's probably because in many languages this distinction does not exist or is
+not so important.
+
+The concepts of the stack and the heap are important when your software runs
+immediately on the hardware.
+In interpreted or JIT-compiled languages like Python, Javascript, Java and C#,
+the software doesn't run immediately on the hardware, but it is rather executed
+by the Python interpreter, Node.js, the browser, the JVM or the CLR.
+The Python interpreter, Node.js, the browser, the JVM or the CLR use the stack
+and the heap for their own functions, but may hide some aspects of memory
+allocation for the programmer.
+For this reason, in Python and JavaScript the concepts of the stack and
+the heap are not so important.
+In Java and C#, the concept of the stack and the heap exist, but it does not
+need to be the same as the stack and the heap that are offered by the hardware.
+In Java for instance, the "Java Virtual Machine stack" may in fact be allocated
+on the heap.
+
