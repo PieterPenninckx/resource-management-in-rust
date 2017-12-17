@@ -8,7 +8,8 @@ registers which you typically only encounter when you program in assembly).
 First there is a piece of memory that can be used by the application for data
 that has a fixed size and lives essentially as long as the application runs.
 It is typically used for constants (e.g. if you want to store the number π, 
-or string constants). This is called _static memory_.
+or string constants). This memory is in the data segment of
+the application and it is called _static memory_.
 You can do complicated stuff with static memory, but for simplicity, let us
 assume that you will only want to store constants in static memory.
 
@@ -86,3 +87,10 @@ need to be the same as the stack and the heap that are offered by the hardware.
 In Java for instance, the "Java Virtual Machine stack" may in fact be allocated
 on the heap.
 
+If you compile Rust to a native executable, the resulting application uses the
+stack and the heap as described above.
+If you compile Rust code to WebAssembly however, it no longer runs directly on
+the hardware, but in an "execution environment" such as a web browser.
+This means that, even while the _result_ of executing the code may be the same
+as when it would run on the hardware directly, memory management is done
+differently. 
