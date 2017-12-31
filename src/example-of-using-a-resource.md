@@ -1,8 +1,8 @@
-A simple example
-----------------
+Example of using a resource
+---------------------------
 
-For simplicity, we omit error handling in this example.
 Consider the following pseudo-code.
+For simplicity, we have omitted error handling.
 
 ```
 WRITE_TO_FILE()
@@ -19,17 +19,18 @@ communicates with the operating system and asks to open the file with the given
 file name.
 
 In general, an application can open more than one file.
-So if the application asks the operating system to write to a file, the 
-operating system has to know: "Which file are you referring to?".
-For this reason, the function `OPEN_FILE` returns a number
-that will be used later on in the communication with the operating system to
-specify which file the application is talking about.
-In the case of a file, the number is called a _file descriptor_.
+So if the application asks the operating system to do something with a file, the 
+operating system has to know: "Which file?".
+For this reason, the function `OPEN_FILE` returns a number that refers to the
+file being opened and that will be used later on in the communication with
+the operating system to specify the file.
+This number is called a _file descriptor_.
 In most libraries, the file descriptor is wrapped in another data
 type that represents the file.
+TODO: Give examples here.
 In our example, we just assume that we get the bare file descriptor.
 
-Line 2 is nothing special: we just store the text we want to write in a variable.
+On line 2, we initialise a variable to store the text we want to write.
 
 On line 3, we call the function `WRITE_TEXT` to write this text to the file.
 The function `WRITE_TEXT` asks the operating system to write the given text

@@ -2,7 +2,7 @@ What is a resource
 ------------------
 
 In the introduction example, we have seen a simple program that
-writes some text to a file.
+writes text to a file.
 
 The file is a specific example of the more broad concept of a _resource_.
 Other examples of resources include 
@@ -18,7 +18,7 @@ concepts (such as the mutual exclusive lock).
 
 Resources are managed by a resource manager, usually the operation system.
 The resource manager distributes handles that give access to this resource.
-In the introduction example for instance, the handle was a file descriptor.
+The handle for a file, for instance, is called a file descriptor.
 
 When a process wants to access a resource, it asks the resource manager for a
 handle that gives access to the resource.
@@ -36,7 +36,7 @@ In the introduction example, this was the call to the `CLOSE_FILE` function.
 After that point, the process should not use the handle anymore.
 When the resource manager is informed that a resource is not needed anymore, 
 it can either close the resource, or it knows that
-the resource can be re-used by another process that wants to use the resource again.
+the resource can be re-used by another process that wants to use it.
 
 In general, using a resource looks as follows:
 

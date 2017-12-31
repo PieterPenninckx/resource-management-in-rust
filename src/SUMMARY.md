@@ -1,7 +1,7 @@
 # Summary
 
-- [Resources in general](./resources-in-general.md)
-	- [Example](./resources-in-general-example.md)
+- [Background](./background.md)
+	- [Example of using a resource](./example-of-using-a-resource.md)
 	- [What is a resource](./what-is-a-resource.md)
 - [Memory as a resource](./memory-as-a-resource.md)
 	- [Example](./memory-as-a-resource-example.md)
