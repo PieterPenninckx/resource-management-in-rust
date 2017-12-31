@@ -1,14 +1,12 @@
-Memory as a resource
-====================
+Memory is a special kind of resource
+====================================
 
 Troughout this document, except when specified otherwise, I use 'memory' to
-refer to virtual memory, i.e. RAM and swap. 
-This excludes CPU registers, which are also a kind of memory, 
-are typically only encountered when programming in assembly and are not handled
-the same way as the other resources do.
+refer to RAM (and maybe disk when swapped out).
+This excludes CPU registers, which are also a kind of memory, buw which you will
+typically only encountered when programming in assembly.
 
-Memory is a resource just like any other, but in all programming
-languages that I know, it is handled differently. 
+Most, if not all, programming handle memory differently than other resources.
 
 One, quite obvious, difference in many programming languages is that memory
 does not have to be released explicitly because a garbage collector takes care

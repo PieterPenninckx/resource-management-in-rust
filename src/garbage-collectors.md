@@ -3,7 +3,7 @@ Garbage collectors
 
 In the previous section, we illustrated that in many programming
 languages, the programmer does not have to explicitly write instructions to
-release memory is no longer needed. 
+release memory that is no longer needed. 
 But if the application were to only reserve more
 and more memory, it would soon run out of memory. So ultimately, somehow the
 application has to know that some pieces of memory are not used anymore and
@@ -12,14 +12,15 @@ may be re-used for something else.
 This is the task of the garbage collector. 
 The garbage collector is a piece of software that 
 runs together with your application.
-It analyses the state of the running program, looking for pieces of memory
-that can no longer be used.
-It then releases these pieces of memory.
+It analyses the state of the running program and looks for pieces of memory
+that are no longer needed.
+It then releases these pieces of memory so that they can be re-used.
 
 There are many techniques for garbage collecting.
 One technique, called 'reference counting', can be implemented relatively easily
 and requires only a little help from the programming language.
-Other techniques require extensive support from the programming language.
+Other techniques, such as 'mark-and-sweep' require extensive support from the
+programming language.
 
 Most recent programming languages, including Python, JavaScript, Java, C# and 
 Go, offer extensive support for garbage collecting. In these languages, you 

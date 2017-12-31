@@ -2,8 +2,9 @@ Not all memory needs to be acquired
 -----------------------------------
 
 Each application gets at least two dedicated pieces of memory
-that can be used without acquiring or releasing it (apart from the CPU
-registers which you typically only encounter when you program in assembly).
+that can be used without acquiring or releasing it.
+
+### Static memory
 
 First there is a piece of memory that can be used by the application for data
 that has a fixed size and lives essentially as long as the application runs.
@@ -12,6 +13,8 @@ or string constants). This memory is in the data segment of
 the application and it is called _static memory_.
 You can do complicated stuff with static memory, but for simplicity, let us
 assume that you will only want to store constants in static memory.
+
+### The stack
 
 Secondly, there is a piece of memory that is used to store the local variables
 of the functions and the arguments that are passed to the functions 
@@ -24,14 +27,16 @@ When a function call is made, a piece of the stack is used to store the local
 variables of the function and the parameters to that function and when the function
 is finished, this piece of memory is released.
 
-This means that after a function call is finished, the memory that was used to
-store the local variables of the function or the arguments that were passed to
-that function, can be re-used for something completely else.
+This means that when a function call is finished, the memory that was used to
+store the local variables of the function and the arguments that were passed to
+that function, can be re-used for something else.
 So you cannot expect the values that were stored in that piece of memory are
 still intact. This implies that you cannot use the stack to store data that you
 need for a longer time, longer than the duration of the function call. 
 
-In some situations however, static memory and the stack are not enough. 
+### The heap
+
+In some situations, static memory and the stack are not enough. 
 When you don't know how much memory you will need at compile time, you can't use
 static memory (in general). 
 And when you need to store memory longer than the duration of the function call
@@ -41,18 +46,18 @@ time how much memory you will need, you can acquire a piece of memory that is
 not in static memory and not on the stack.
 We say that this is "on the heap".
 
-This is just the same as with any other kind of resource we discussed before!
 Memory on the heap has to be acquired explicitly and must be released after use,
 either as a consequence of an explicit instruction in the program, or because
 the garbage collector takes care of that.
+This is just the same as with any other kind of resource we discussed before!
 For memory, a dynamic memory management library has the role of
 resource manager and it distributes handles (memory addresses) that can be 
 used by the processes.
 The process can ask the dynamic memory management library for an arbitrary
 amount of bytes and (if there is still memory available), the dynamic memory
 management library returns the memory address of the beginning of a contiguous
-region of memory that is not yet being used. The process can then use this
-region of memory at will, but must instruct the dynamic memory library to
+region of memory that is not yet in use. The process can then use this
+region of memory and must instruct the dynamic memory library to
 release the memory after use.
 
 The dynamic memory management library plays an intermediate role
