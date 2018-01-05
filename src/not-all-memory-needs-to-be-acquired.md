@@ -20,19 +20,35 @@ Secondly, there is a piece of memory that is used to store the local variables
 of the functions and the arguments that are passed to the functions 
 (and some other stuff as well). 
 This is called the _stack_.
-There is one stack per thread.
+
+There is one stack per thread and it typically has a fixed size.
 If you don't know what a thread is, don't worry about that for now, just 
 know that each application uses at least one thread when it runs.
-When a function call is made, a piece of the stack is used to store the local
-variables of the function and the parameters to that function and when the function
-is finished, this piece of memory is released.
 
-This means that when a function call is finished, the memory that was used to
-store the local variables of the function and the arguments that were passed to
-that function, can be re-used for something else.
-So you cannot expect the values that were stored in that piece of memory are
-still intact. This implies that you cannot use the stack to store data that you
-need for a longer time, longer than the duration of the function call. 
+When a function `a()` calls a function `b()`, we say that `a` is the _caller_
+and `b` is the _callee_.
+When a function call is made, a piece of the stack is reserved to store the
+local variables of the callee, the parameters to that callee and some other
+stuff that is needed to make it all work.
+This piece of the stack is called the _stack frame_ corresponding to the
+callee.
+When the callee returns, the stack frame corresponding to the callee is released
+and  may be re-used for something else.
+
+This means that you cannot expect the values that were stored in stack frame
+of the callee are still intact when the callee has returned.
+This implies that you cannot use the stack to store data that you
+will still need after the callee has returned.
+
+How exactly the return value of a function is transferred from the callee to
+the caller depends on the CPU architecture and on the number of bytes that need
+to be returned.
+In order to understand this document, you may think that the caller treats the
+return value of the callee as a local variable of the caller and stores it on
+the stack frame of the caller.
+The callee gets an extra parameter that indicates where the return value should
+be stored.
+
 
 ### The heap
 
@@ -99,3 +115,43 @@ the hardware, but in an "execution environment" such as a web browser.
 This means that, even while the _result_ of executing the code may be the same
 as when it would run on the hardware directly, memory management is done
 differently. 
+Nevertheless, even in this context, the concepts of the stack and the heap
+are still relevant because they determine how long a piece of memory is kept
+intact and if the program has to do some extra work to indicate that a piece
+of memory may be re-used.
+
+### The stack and the heap in action
+
+Let us give an example of all three types of memory (stack, heap and static
+memory) in the C programming language.
+This is not a course in the C programming language, so I keep the example very
+simple and I also do some things that you shouldn't really do in C.
+
+```C
+do_something() {
+	int integer_number_on_the_stack = 10000;
+}
+
+int return_something() {
+	return 500;
+}
+
+main() {
+	void* memory_address_of_something_in_static_memory = "abc";
+	
+	int data_on_the_stack = 10000;
+	void* memory_address_of_something_on_the_stack = &data_on_the_stack;
+	do_something();
+	int other_data_on_the_stack = return_something();
+	
+	void* memory_address_of_something_on_the_heap = malloc(100);
+	free(memory_address_of_something_on_the_heap);
+}
+```
+
+In the `main` function, the variable 
+`memory_address_of_something_in_static_memory` holds the memory address of the
+first byte of a string constant.
+The data type "`void *`" means "memory address of something".
+
+TODO: continue on this.
