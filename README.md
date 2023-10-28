@@ -10,10 +10,13 @@ We zoom in on some concepts that are specific to Rust:
 
 [Read online.](https://pieterpenninckx.github.io/resource-management-in-rust/)
 
-Meta
-----
+Unmaintained and probably outdated
+----------------------------------
 
-This is a work in progress. It is not part of the official Rust documentation.
+I wrote this at the time to better understand Rust. 
+I don't maintain it anymore.
+It is probably outdated.
+It is not part of the official Rust documentation.
 
 Target audience
 ---------------
